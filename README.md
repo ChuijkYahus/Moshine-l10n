@@ -25,9 +25,10 @@ Custom terrain, music/sfx, 26 techs, 5 buildings, some original challenges... Un
 # CREDITS & LICENCE
 - The soundtrack is from these two albums by **Anemoia**: [Forever](https://freemusicarchive.org/music/anemoia/forever), [>>>>](https://freemusicarchive.org/music/anemoia/-6), found on Free Music Archive under license CC-BY-NC-SA
 - 1000 thanks to Talandar for the custom "cosmic scanner" spinning dome and the code for the multi-stage building
-- Neural computer, Data extractor, Indexer, AI trainer and sand graphics include or are modified versions of **Krastorio 1 and 2** (GNU LGPLv3 license)
-- The Data extractor, Data processor and AI trainer contain some graphics from **Hurricane046**'s buildings (CC BY license)
-- The neural computer includes parts from Exotic Space Industries from **PreyLeyZero** and **eliont** (GNU LGPLv3 license)
+- Neural computer, foreign.data decoder, Compute farm, AI trainer and sand graphics include or are modified versions of **Krastorio 1 and 2** graphics (GNU LGPLv3 license)
+- The foreign.data decoder, Data processor, AI trainer and Cosmic scanner contain some graphics from **Hurricane046**'s buildings (CC BY license)
+- The Neural computer and Cosmic scanner includes parts from Exotic Space Industries from **PreyLeyZero** and **eliont** (GNU LGPLv3 license)
+- The Cosmic scanner also include parts from: Omega Drill (old version) by **toddnollan** (MIT license), Sosciencity by **tirisabella** (MIT license) and Realistic Fusion Power - assets by **PreyLeyZero** (WTFPL)
 - One tech icon uses an icon from **Malcolm Riley** (CC BY)
 - The new datacell icon is based on an icon by **Petrak**
 - Translations: 

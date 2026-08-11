@@ -98,9 +98,9 @@ data:extend({
     surface_conditions = {{ property = "gravity", min = 0, max = 0}},
     ingredients = --x1 --scaffoldings
     {
-      {type = "item", name = "concrete", amount = 600},
-      {type = "item", name = "steel-plate", amount = 300},
-      {type = "item", name = "space-platform-foundation", amount = 200},
+      {type = "item", name = "concrete", amount = 1200},
+      {type = "item", name = "steel-plate", amount = 600},
+      {type = "item", name = "space-platform-foundation", amount = 500},
       {type = "item", name = "silicon", amount = 50},
       --{type = "fluid", name = "petroleum-gas", amount = 100},
       --{type = "item", name = "concrete", amount = 100},

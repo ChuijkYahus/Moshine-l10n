@@ -2,6 +2,48 @@ local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 local space_age_sounds = require ("__space-age__.prototypes.entity.sounds")
 
+
+
+ local pipe_connectors = {
+  north = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_north.png",
+    priority = "extra-high",
+    shift = {0, 1},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  east = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_east.png",
+    priority = "extra-high",
+    shift = {-1, 0},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  south = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_south.png",
+    priority = "extra-high",
+    shift = {0, -1},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  west = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_west.png",
+    priority = "extra-high",
+    shift = {1, 0},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+}
+
+
 local data_extractor_sheet =
 {
   layers = {
@@ -55,35 +97,18 @@ data:extend({
     },
     output_fluid_box =
     {
-      volume = 10000,
+      volume = 100,
+      pipe_picture = pipe_connectors,
       --pipe_covers = pipecoverspictures(),,
       max_pipeline_extent = 1000000,
+      secondary_draw_orders = { north = -100 },
+      draw_only_when_connected = true,
       pipe_connections =
       {
-        {
-          direction = defines.direction.north,
-          position = {0, -2},
-          connection_category = "data",
-          flow_direction = "output"
-        },
-        {
-          direction = defines.direction.south,
-          position = {0, 2},
-          connection_category = "data",
-          flow_direction = "output"
-        },
-        {
-          direction = defines.direction.east,
-          position = {2, 0},
-          connection_category = "data",
-          flow_direction = "output"
-        },
-        {
-          direction = defines.direction.west,
-          position = {-2, 0},
-          connection_category = "data",
-          flow_direction = "output"
-        },
+        {flow_direction = "output", direction = defines.direction.north, position = {0, -2}, connection_category = "data"},
+        {flow_direction = "output", direction = defines.direction.south, position = {0, 2}, connection_category = "data"},
+        {flow_direction = "output", direction = defines.direction.east, position = {2, 0}, connection_category = "data"},
+        {flow_direction = "output", direction = defines.direction.west, position = {-2, 0}, connection_category = "data"},
       }
     },
     energy_usage = "3000kW",

@@ -505,11 +505,12 @@ data:extend({
     categories = {"data-processing"},
     subgroup = "moshine-datacells",
     order = "a[moshine]-da",
-    hide_from_player_crafting = true,
+    --hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {
       {type = "fluid", name = "raw-data", amount = 300},
       {type = "fluid", name = "solved-equation-data", amount = 90},
+      {type = "item", name = "space-science-pack", amount = 1},
     },
     results = {{type = "fluid", name = "cosmic-data-outsignal", amount = 1}},
     allow_productivity = false,
@@ -525,7 +526,7 @@ data:extend({
     categories = {"data-processing"},
     subgroup = "moshine-datacells",
     order = "a[moshine]-db",
-    hide_from_player_crafting = true,
+    --hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {
       {type = "item", name = "datacell-empty", amount = 1},
@@ -587,7 +588,7 @@ data:extend({
     categories = {"data-processing"},
     subgroup = "moshine-datacells",
     order = "a[moshine]-eb",
-    hide_from_player_crafting = true,
+    --hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {
       {type = "item", name = "datacell-empty", amount = 1},

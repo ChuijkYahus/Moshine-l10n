@@ -1,6 +1,9 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2026-08
+  Info:
+    - YOU CAN DISABLE DAMAGES IN STARTUP SETTINGS
+    - SOME OF THE CHANGES MIGHT BREAK SOME OF YOUR EXISTING BASE
   Features:
     - Added Sun heat and cooling as a recommended dependency (will download by default, can be disabled)
     - This adds sun damage on moshine, sun visual effects, and a building that protects from it
@@ -17,11 +20,12 @@ Date: 2026-08
     - Reduced health of custom solar panel and accumulator to lower than the original as a tradeoff for how powerful they are (in submod)
     - Quantum processor prod tech now requires cosmic data
     - Process indexing tech now earlier in the tech tree (after stable model), with cost adjusted
-    - Reduced data processor and fiber's content buffer
-    - Added out_signal.data requirement for techs ai-tier-7, ai-tier-8, long stack inserter and big accumulators
+    - Reduced data processor, data decoder and fiber's content buffer
+    - Added solved_equation.data requirement for techs ai-tier-5, ai-tier-6, ai-tier-7, ai-tier-8, ai-tier-9, ai-tier-10, long stack inserter and big accumulators
+    - Added out_signal.data requirement for techs ai-tier-7, ai-tier-8, ai-tier-9, ai-tier-10, long stack inserter and big accumulators
     - Added cosmos.data requirement for techs ai-tier-9 and ai-tier-10
   Graphics:
-    - Brand new optical fiber graphics, with proper connectors on data processor
+    - Brand new optical fiber graphics, with proper connectors on data processor and 
     - Reworked big accumulator sprite and animation (in submod)
     - Added data extractor remnants
     - Removed optical fiber connection arrows displaying
@@ -32,6 +36,7 @@ Date: 2026-08
     - Added 4 sand sprite variations (prev. 9)
     - Tweaked some icon variations
     - Reworked ai trainer tech icon
+    - AI tiers tech icons recolored to look like their icons
   Bugfixes:
     - Fixed recycling recipe for hypercell substation, solar panel and accumulator
     - Fixed ai-tier-2 recipe result probability
@@ -40,7 +45,7 @@ Date: 2026-08
     - Solar power on Moshine orbit increased from x60 to x600
     - Data processor can be built in space
   Gui:
-    - Hid0 datacell-remove-raw-data recipe
+    - Hid datacell-remove-raw-data recipe
     - Changed how data is stylized in datacells with colors, border and the format "---_----.data"
     - Renamed Training data to foreign.dat (to avoid confusion in english between the action and the purpose)
     - Renamed "Archeological data retriever" to "Foreign data decoder", tech Data archeology to foreign.data translation
