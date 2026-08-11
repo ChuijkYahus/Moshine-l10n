@@ -1,2 +1,2 @@
 require("scripts.init")
-require("scripts.megastructure")
+require("scripts.cosmicscanner-construction")

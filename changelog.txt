@@ -18,10 +18,11 @@ Date: 2026-08
     - Quantum processor prod tech now requires cosmic data
     - Process indexing tech now earlier in the tech tree (after stable model), with cost adjusted
     - Reduced data processor and fiber's content buffer
+    - Added out_signal.data requirement for techs ai-tier-7, ai-tier-8, long stack inserter and big accumulators
+    - Added cosmos.data requirement for techs ai-tier-9 and ai-tier-10
   Graphics:
+    - Brand new optical fiber graphics, with proper connectors on data processor
     - Reworked big accumulator sprite and animation (in submod)
-    - Brand new optical fiber graphics
-    - Proper optical fiber connectors on data processor
     - Added data extractor remnants
     - Removed optical fiber connection arrows displaying
     - Adjusted some icons (AI tiers)
@@ -30,6 +31,7 @@ Date: 2026-08
     - Added 5 datacells sprite variations (prev. 1)
     - Added 4 sand sprite variations (prev. 9)
     - Tweaked some icon variations
+    - Reworked ai trainer tech icon
   Bugfixes:
     - Fixed recycling recipe for hypercell substation, solar panel and accumulator
     - Fixed ai-tier-2 recipe result probability

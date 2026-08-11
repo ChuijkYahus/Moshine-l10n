@@ -529,6 +529,7 @@ data:extend({
       {
         {"datacell-raw-data", 1},
         {"datacell-ai-model-data", 1},
+        {"datacell-solved-equation", 1},
       },
       time = 80
     },
@@ -630,13 +631,14 @@ data:extend({
         recipe = "moshine_cosmicscanner-construct-3"
       },
     },
-    prerequisites = {"moshine-tech-cosmicscanner-construction3", "moshine-tech-data-extractor", "tesla-weapons"},
+    prerequisites = {"moshine-tech-cosmicscanner-construction3", "moshine-tech-data-extractor", "tesla-weapons", "moshine-tech-processing-grid"},
     unit =
     {
       count = 450,
       ingredients =
       {
         {"datacell-raw-data", 1},
+        {"datacell-solved-equation", 1},
       },
       time = 80
     },
@@ -670,12 +672,14 @@ data:extend({
     prerequisites = {"moshine-tech-cosmicscanner-construction4", "moshine-tech-cosmic-data-outsignal-creation", "moshine-tech-ai-tier-1"},
     unit =
     {
-      count = 50,
+      count = 600,
       ingredients =
       {
         {"datacell-raw-data", 1},
         {"datacell-ai-model-data", 1},
         {"datacell-solved-equation", 1},
+        {"datacell-cosmic-data-outsignal", 1},
+
       },
       time = 80
     },
@@ -775,7 +779,7 @@ data:extend({
     subgroup = "moshine-tech-with-datacells",
     order = "zzz",
     effects = {{type = "unlock-recipe", recipe = "ai-tier-7" }},
-    prerequisites = {"moshine-tech-ai-tier-6"},
+    prerequisites = {"moshine-tech-ai-tier-6","moshine-tech-cosmic-data-outsignal-creation"},
     unit = {},
     upgrade = true,
   },
@@ -787,7 +791,7 @@ data:extend({
     subgroup = "moshine-tech-with-datacells",
     order = "zzz",
     effects = {{type = "unlock-recipe", recipe = "ai-tier-8" }},
-    prerequisites = {"moshine-tech-ai-tier-7"},
+    prerequisites = {"moshine-tech-ai-tier-7", "moshine-tech-cosmic-data-outsignal-creation"},
     unit = {},
     upgrade = true,
   },
@@ -799,7 +803,7 @@ data:extend({
     subgroup = "moshine-tech-with-datacells",
     order = "zzz",
     effects = {{type = "unlock-recipe", recipe = "ai-tier-9" }},
-    prerequisites = {"moshine-tech-ai-tier-8"},
+    prerequisites = {"moshine-tech-ai-tier-8","moshine-tech-cosmicscanner-construction5"},
     unit = {},
     upgrade = true,
   },
@@ -811,7 +815,7 @@ data:extend({
     subgroup = "moshine-tech-with-datacells",
     order = "zzz",
     effects = {{type = "unlock-recipe", recipe = "ai-tier-10" }},
-    prerequisites = {"moshine-tech-ai-tier-9"},
+    prerequisites = {"moshine-tech-ai-tier-9","moshine-tech-cosmicscanner-construction5"},
     unit = {},
     upgrade = true,
   },
@@ -870,7 +874,7 @@ data:extend({
         change = 0.1
       },
     },
-    prerequisites = {"moshine-tech-processing-grid", "quantum-processor"},
+    prerequisites = {"moshine-tech-processing-grid", "quantum-processor","moshine-tech-cosmicscanner-construction5"},
     unit =
     {
       count_formula = "1.4^L*700",
@@ -901,6 +905,15 @@ end
 
 
 
+if data.raw["technology"]["long-stack-inserter"] and data.raw["technology"]["long-stack-inserter"].prerequisites then
+  table.insert(data.raw["technology"]["long-stack-inserter"].prerequisites, "moshine-tech-cosmic-data-outsignal-creation")
+end
+
+if data.raw["technology"]["electric-energy-big-accumulators"] and data.raw["technology"]["electric-energy-big-accumulators"].prerequisites then
+  table.insert(data.raw["technology"]["electric-energy-big-accumulators"].prerequisites, "moshine-tech-cosmic-data-outsignal-creation")
+end
+
+
 local function add_tech_unit(tech, count, time, ingredients)
   if data.raw["technology"][tech] and count and time and ingredients then
     data.raw["technology"][tech].unit =
@@ -912,21 +925,21 @@ local function add_tech_unit(tech, count, time, ingredients)
   end
 end
 
-add_tech_unit("moshine-tech-data-extractor", 40, 60,          {{"datacell-empty", 1}} )
-add_tech_unit("moshine-tech-3d-data-storage", 200, 60,        {{"datacell-raw-data", 1}} )
-add_tech_unit("moshine-tech-data-processor", 1000, 10,        {{"datacell-raw-data", 1}} )
-add_tech_unit("moshine-tech-ai-trainer", 50, 80,              {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-2", 10, 2*500,            {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("big-solar-energy", 13, 3*500,                  {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-3", 15, 16*500,           {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-4", 20, 54*500,           {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("snouz_better_substation_tech", 40, 27*500,     {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-5", 25, 128*500,          {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-processing-grid", 10, 145*500,    {{"datacell-raw-data", 10},{"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-6", 30, 250*500,          {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-7", 35, 432*500,          {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("electric-energy-big-accumulators", 36, 437*500,{{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-8", 40, 686*500,          {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-9", 45, 1024*500,         {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("moshine-tech-ai-tier-10", 50, 1458*500,        {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
-add_tech_unit("long-stack-inserter", 1000, 2.45*500,          {{"datacell-raw-data", 1}, {"datacell-solved-equation", 1}} )
+add_tech_unit("moshine-tech-data-extractor",      40, 60,         {{"datacell-empty", 1}} )
+add_tech_unit("moshine-tech-3d-data-storage",     200, 60,        {{"datacell-raw-data", 1}} )
+add_tech_unit("moshine-tech-data-processor",      1000, 10,       {{"datacell-raw-data", 1}} )
+add_tech_unit("moshine-tech-processing-grid",     100, 100,       {{"datacell-raw-data", 10},{"datacell-ai-model-data", 1}} )
+add_tech_unit("moshine-tech-ai-trainer",          50, 80,         {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
+add_tech_unit("moshine-tech-ai-tier-2",           10, 2*500,      {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
+add_tech_unit("big-solar-energy",                 13, 3*500,      {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
+add_tech_unit("moshine-tech-ai-tier-3",           15, 16*500,     {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
+add_tech_unit("moshine-tech-ai-tier-4",           20, 54*500,     {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
+add_tech_unit("snouz_better_substation_tech",     40, 27*500,     {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
+add_tech_unit("moshine-tech-ai-tier-5",           25, 128*500,    {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
+add_tech_unit("moshine-tech-ai-tier-6",           30, 250*500,    {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1}} )
+add_tech_unit("moshine-tech-ai-tier-7",           35, 432*500,    {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1},{"datacell-cosmic-data-outsignal", 1}} )
+add_tech_unit("electric-energy-big-accumulators", 36, 437*500,    {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1},{"datacell-cosmic-data-outsignal", 1}} )
+add_tech_unit("moshine-tech-ai-tier-8",           40, 686*500,    {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1},{"datacell-cosmic-data-outsignal", 1}} )
+add_tech_unit("moshine-tech-ai-tier-9",           45, 1024*500,   {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1},{"datacell-cosmic-data-outsignal", 1},{"datacell-cosmic-data", 1}} )
+add_tech_unit("moshine-tech-ai-tier-10",          50, 1458*500,   {{"datacell-raw-data", 1}, {"datacell-ai-model-data", 1},{"datacell-cosmic-data-outsignal", 1},{"datacell-cosmic-data", 1}} )
+add_tech_unit("long-stack-inserter",              1000, 2.45*500, {{"datacell-raw-data", 1}, {"datacell-solved-equation", 1},{"datacell-cosmic-data-outsignal", 1}} )
