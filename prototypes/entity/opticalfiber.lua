@@ -7,6 +7,7 @@ local function make_visualization(i)
     size = 64,
     scale = 0.5,
     flags = {"icon"},
+    draw_as_glow = true,
   }
 end
 
@@ -19,6 +20,7 @@ local function make_disabled_visualization(i)
     size = 64,
     scale = 0.5,
     flags = {"icon"},
+    draw_as_glow = true,
   }
 end
 
@@ -29,8 +31,8 @@ opticalfiberpictures = function()
     {
       filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-straight-vertical-single.png",
       priority = "extra-high",
-      width = 160,
-      height = 160,
+      width = 128,
+      height = 128,
       scale = 0.5
     },
     straight_vertical =
@@ -43,7 +45,7 @@ opticalfiberpictures = function()
     },
     straight_vertical_window =
     {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-straight-vertical.png",
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-straight-vertical-window.png",
       priority = "extra-high",
       width = 128,
       height = 128,
@@ -51,7 +53,7 @@ opticalfiberpictures = function()
     },
     straight_horizontal_window =
     {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-straight-horizontal.png",
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-straight-horizontal-window.png",
       priority = "extra-high",
       width = 128,
       height = 128,
@@ -207,7 +209,7 @@ opticalfiberpictures = function()
     ending_left_disabled_visualization = make_disabled_visualization(8),
     horizontal_window_background =
     {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-horizontal-window-background.png",
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-straight-horizontal-window-background.png",
       priority = "extra-high",
       width = 128,
       height = 128,
@@ -215,7 +217,7 @@ opticalfiberpictures = function()
     },
     vertical_window_background =
     {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-vertical-window-background.png",
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-straight-vertical-window-background.png",
       priority = "extra-high",
       width = 128,
       height = 128,
@@ -225,44 +227,46 @@ opticalfiberpictures = function()
     {
       filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-background.png",
       priority = "extra-high",
-      width = 64,
-      height = 40,
-      scale = 3.5
+      width = 32,
+      height = 32,
+      scale = 0.5
     },
-    low_temperature_flow =
-    {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-flow-low-temperature.png",
+    low_temperature_flow = nil,
+    --[[{
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-flow.png",
       priority = "extra-high",
-      width = 160,
-      scale = 8.5,
-      height = 18
-    },
-    middle_temperature_flow =
-    {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-flow-medium-temperature.png",
+      width = 1,
+      height = 1,
+      scale = 0.5,
+    },]]
+    middle_temperature_flow = nil,
+    --[[{
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-flow.png",
       priority = "extra-high",
-      width = 160,
-      scale = 8.5,
-      height = 18
-    },
-    high_temperature_flow =
-    {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-flow-high-temperature.png",
+      width = 1,
+      height = 1,
+      scale = 0.5,
+    },]]
+    high_temperature_flow = nil,
+    --[[{
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-flow.png",
       priority = "extra-high",
-      width = 160,
-      scale = 8.5,
-      height = 18
-    },
+      width = 320,
+      height = 1,
+      scale = 0.5,
+    },]]
     gas_flow =
     {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/steam.png",
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-flow.png",
       priority = "extra-high",
-      scale = 0,
-      line_length = 10,
-      width = 48,
-      height = 30,
-      frame_count = 60
-    }
+      scale = 12,
+      line_length = 250,
+      width = 1,
+      height = 1,
+      --shift = util.by_pixel(3,3),
+      frame_count = 250,
+      animation_speed = 400,
+    },
   }
 end
 
@@ -383,7 +387,7 @@ data:extend({
     damaged_trigger_effect = hit_effects.entity(),
     fluid_box =
     {
-      volume = 10000,
+      volume = 100,
       pipe_covers = opticalfibercoverspictures(), -- in case a real pipe is connected to a ghost
       --filter = "raw-data",
       pipe_connections =
@@ -393,7 +397,6 @@ data:extend({
         { direction = defines.direction.south, position = {0, 0}, connection_category = "data", hide_connection_info = true },
         { direction = defines.direction.west, position = {0, 0}, connection_category = "data", hide_connection_info = true }
       },
-      hide_connection_info = true,
       max_pipeline_extent = 1000000,
     },
     impact_category = "glass",
@@ -402,7 +405,10 @@ data:extend({
     open_sound = sounds.metal_small_open,
     close_sound = sounds.metal_small_close,
 
-    horizontal_window_bounding_box = {{-0.25, -0.28125}, {0.25, 0.15625}},
-    vertical_window_bounding_box = {{-0.28125, -0.5}, {0.03125, 0.125}}
+    --horizontal_window_bounding_box = {{-0.25, -0.28125}, {0.25, 0.15625}},
+    --vertical_window_bounding_box = {{-0.28125, -0.5}, {0.03125, 0.125}}
+
+    horizontal_window_bounding_box = {util.by_pixel(-7, -3.5), util.by_pixel(7, 3)},
+    vertical_window_bounding_box = {util.by_pixel(-3, -5), util.by_pixel(4,4)}
   },
 })

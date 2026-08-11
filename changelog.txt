@@ -17,12 +17,19 @@ Date: 2026-08
     - Reduced health of custom solar panel and accumulator to lower than the original as a tradeoff for how powerful they are (in submod)
     - Quantum processor prod tech now requires cosmic data
     - Process indexing tech now earlier in the tech tree (after stable model), with cost adjusted
+    - Reduced data processor and fiber's content buffer
   Graphics:
     - Reworked big accumulator sprite and animation (in submod)
+    - Brand new optical fiber graphics
+    - Proper optical fiber connectors on data processor
     - Added data extractor remnants
     - Removed optical fiber connection arrows displaying
     - Adjusted some icons (AI tiers)
     - Reworked some icons (model-stable, datacells, data)
+    - Added 4 neodymium sprite variations (prev. 4)
+    - Added 5 datacells sprite variations (prev. 1)
+    - Added 4 sand sprite variations (prev. 9)
+    - Tweaked some icon variations
   Bugfixes:
     - Fixed recycling recipe for hypercell substation, solar panel and accumulator
     - Fixed ai-tier-2 recipe result probability

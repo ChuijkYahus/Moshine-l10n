@@ -2,6 +2,48 @@ local hit_effects = require("__base__.prototypes.entity.hit-effects")
 local sounds = require("__base__.prototypes.entity.sounds")
 local space_age_sounds = require ("__space-age__.prototypes.entity.sounds")
  
+
+
+
+ local pipe_connectors = {
+  north = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_north.png",
+    priority = "extra-high",
+    shift = {0, 1},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  east = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_east.png",
+    priority = "extra-high",
+    shift = {-1, 0},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  south = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_south.png",
+    priority = "extra-high",
+    shift = {0, -1},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  west = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_west.png",
+    priority = "extra-high",
+    shift = {1, 0},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+}
+
 data:extend({
   {
     type = "corpse",
@@ -58,9 +100,9 @@ data:extend({
     {
       {
         production_type = "input",
-        --pipe_picture = assembler3pipepictures(),
+        pipe_picture = pipe_connectors,
         --pipe_covers = pipecoverspictures(),
-        volume = 10000,
+        volume = 100,
         --filter = "raw-data",
         pipe_connections = {
           --{flow_direction = "input", direction = defines.direction.north, position = {0, -1}, connection_category = "data"},
@@ -68,14 +110,15 @@ data:extend({
           --{flow_direction = "input", direction = defines.direction.south, position = {0, 1}, connection_category = "data"},
           {flow_direction = "input", direction = defines.direction.west, position = {-1, 0}, connection_category = "data"}
         },
-        secondary_draw_orders = { north = -1 },
+        secondary_draw_orders = { east = -100 },
         max_pipeline_extent = 1000000,
+        draw_only_when_connected = true,
       },
       {
         production_type = "input",
-        --pipe_picture = assembler3pipepictures(),
+        pipe_picture = pipe_connectors,
         --pipe_covers = pipecoverspictures(),
-        volume = 10000,
+        volume = 100,
         --filter = "raw-data",
         pipe_connections = {
           {flow_direction = "input", direction = defines.direction.north, position = {0, -1}, connection_category = "data"},
@@ -83,29 +126,44 @@ data:extend({
           {flow_direction = "input", direction = defines.direction.south, position = {0, 1}, connection_category = "data"},
           --{flow_direction = "input", direction = defines.direction.west, position = {-1, 0}, connection_category = "data"}
         },
-        secondary_draw_orders = { north = -1 },
+        secondary_draw_orders = { north = -100 },
         max_pipeline_extent = 1000000,
+        draw_only_when_connected = true,
       },
       {
         production_type = "output",
-        --pipe_picture = assembler3pipepictures(),
+        pipe_picture = pipe_connectors,
         --pipe_covers = pipecoverspictures(),
-        volume = 10000,
+        volume = 100,
         --filter = "raw-data",
         pipe_connections = {
           {flow_direction = "output", direction = defines.direction.north, position = {-1, -1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.north, position = {1, -1}, connection_category = "data"},
-          {flow_direction = "output", direction = defines.direction.east, position = {1, -1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.east, position = {1, 1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.south, position = {1, 1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.south, position = {-1, 1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.west, position = {-1, 1}, connection_category = "data"},
+        },
+        secondary_draw_orders = { north = -100, south = 100 },
+        max_pipeline_extent = 1000000,
+        draw_only_when_connected = true,
+      },
+      { -- for the connectors that are
+        production_type = "output",
+        pipe_picture = pipe_connectors,
+        --pipe_covers = pipecoverspictures(),
+        volume = 100,
+        --filter = "raw-data",
+        pipe_connections = {
+          {flow_direction = "output", direction = defines.direction.east, position = {1, -1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.west, position = {-1, -1}, connection_category = "data"},
         },
-        secondary_draw_orders = { north = -1 },
+        secondary_draw_orders = { east = -100, west = -100},
         max_pipeline_extent = 1000000,
+        draw_only_when_connected = true,
       },
     },
+    fluid_boxes_off_when_no_fluid_recipe = true,
     collision_box = {{-1.2, -1.2}, {1.2, 1.2}},
     selection_box = {{-1.5, -1.5}, {1.5, 1.5}},
     damaged_trigger_effect = hit_effects.entity(),
@@ -154,7 +212,8 @@ data:extend({
             line_length = 1,
             animation_speed = 0.15,
             shift = util.by_pixel(0, -16),
-            scale = 0.5
+            scale = 0.5,
+            render_layer = "object",
           },
           {
             filename = "__Moshine-assets__/graphics/entity/data-processor/suit-plug-outlet-hr-shadow.png",

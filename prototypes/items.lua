@@ -185,6 +185,10 @@ data:extend({
       { size = 64, filename = "__Moshine__/graphics/icons/sand-7.png", scale = 0.5 },
       { size = 64, filename = "__Moshine__/graphics/icons/sand-8.png", scale = 0.5 },
       { size = 64, filename = "__Moshine__/graphics/icons/sand-9.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/sand-10.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/sand-11.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/sand-12.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/sand-13.png", scale = 0.5 },
     },
     stack_size = 100,
     default_import_location = "moshine",
@@ -249,10 +253,14 @@ data:extend({
     icon = "__Moshine__/graphics/icons/neodymium.png",
     pictures =
     {
-      { size = 64, filename = "__Moshine__/graphics/icons/neodymium.png",   scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/neodymium.png", scale = 0.5 },
       { size = 64, filename = "__Moshine__/graphics/icons/neodymium-1.png", scale = 0.5 },
       { size = 64, filename = "__Moshine__/graphics/icons/neodymium-2.png", scale = 0.5 },
-      { size = 64, filename = "__Moshine__/graphics/icons/neodymium-3.png", scale = 0.5 }
+      { size = 64, filename = "__Moshine__/graphics/icons/neodymium-3.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/neodymium-4.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/neodymium-5.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/neodymium-6.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/neodymium-7.png", scale = 0.5 },
     },
     subgroup = "moshine-processes",
     order = "ccc",
@@ -341,6 +349,15 @@ data:extend({
     pick_sound = item_sounds.metal_small_inventory_pickup,
     drop_sound = item_sounds.metal_small_inventory_move,
     default_import_location = "moshine",
+    pictures =
+    {
+      { size = 64, filename = "__Moshine__/graphics/icons/data/datacell-empty.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/data/datacell-empty-1.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/data/datacell-empty-2.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/data/datacell-empty-3.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/data/datacell-empty-4.png", scale = 0.5 },
+      { size = 64, filename = "__Moshine__/graphics/icons/data/datacell-empty-5.png", scale = 0.5 },
+    },
     --durability = 1,
     --durability_description_key = "description.science-pack-remaining-amount-key",
     --factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
