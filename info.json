@@ -9,7 +9,7 @@
   "dependencies": [
     "base",
     "space-age",
-    "Moshine-assets >= 0.5.0",
+    "Moshine-assets >= 1.0.0",
     "module-category-defaults",
     "+ sun_heat_and_cooling >= 1.2.1",
     "+ snouz-big-accumulator >= 1.2.0",

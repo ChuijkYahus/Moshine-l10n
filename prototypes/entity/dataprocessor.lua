@@ -101,13 +101,9 @@ data:extend({
       {
         production_type = "input",
         pipe_picture = pipe_connectors,
-        --pipe_covers = pipecoverspictures(),
         volume = 100,
-        --filter = "raw-data",
         pipe_connections = {
-          --{flow_direction = "input", direction = defines.direction.north, position = {0, -1}, connection_category = "data"},
           {flow_direction = "input", direction = defines.direction.east, position = {1, 0}, connection_category = "data"},
-          --{flow_direction = "input", direction = defines.direction.south, position = {0, 1}, connection_category = "data"},
           {flow_direction = "input", direction = defines.direction.west, position = {-1, 0}, connection_category = "data"}
         },
         secondary_draw_orders = { east = -100 },
@@ -117,14 +113,10 @@ data:extend({
       {
         production_type = "input",
         pipe_picture = pipe_connectors,
-        --pipe_covers = pipecoverspictures(),
         volume = 100,
-        --filter = "raw-data",
         pipe_connections = {
           {flow_direction = "input", direction = defines.direction.north, position = {0, -1}, connection_category = "data"},
-          --{flow_direction = "input", direction = defines.direction.east, position = {1, 0}, connection_category = "data"},
           {flow_direction = "input", direction = defines.direction.south, position = {0, 1}, connection_category = "data"},
-          --{flow_direction = "input", direction = defines.direction.west, position = {-1, 0}, connection_category = "data"}
         },
         secondary_draw_orders = { north = -100 },
         max_pipeline_extent = 1000000,
@@ -133,9 +125,7 @@ data:extend({
       {
         production_type = "output",
         pipe_picture = pipe_connectors,
-        --pipe_covers = pipecoverspictures(),
         volume = 100,
-        --filter = "raw-data",
         pipe_connections = {
           {flow_direction = "output", direction = defines.direction.north, position = {-1, -1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.north, position = {1, -1}, connection_category = "data"},
@@ -148,12 +138,10 @@ data:extend({
         max_pipeline_extent = 1000000,
         draw_only_when_connected = true,
       },
-      { -- for the connectors that are
+      { -- for the connectors that are behind entity
         production_type = "output",
         pipe_picture = pipe_connectors,
-        --pipe_covers = pipecoverspictures(),
         volume = 100,
-        --filter = "raw-data",
         pipe_connections = {
           {flow_direction = "output", direction = defines.direction.east, position = {1, -1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.west, position = {-1, -1}, connection_category = "data"},

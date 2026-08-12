@@ -81,67 +81,7 @@ local craneprop = {
 
   parts =
   {
-    --[[
     {
-      rotated_sprite =
-      util.sprite_load("__Moshine-assets__/graphics/entity/agricultural-tower/agricultural-tower-crane-1",
-      {
-        priority = "very-low",
-        dice = 4,
-        direction_count = 128,
-        scale = 0.5
-      }),
-      rotated_sprite_shadow =
-      util.sprite_load("__Moshine-assets__/graphics/entity/agricultural-tower/agricultural-tower-crane-1-shadow",
-      {
-        priority = "very-low",
-        direction_count = 64,
-        scale = 1,
-        draw_as_shadow = true
-      }),
-      rotated_sprite_reflection =
-      util.sprite_load("__Moshine-assets__/graphics/entity/agricultural-tower/agricultural-tower-crane-1-reflection",
-      {
-        priority = "very-low",
-        direction_count = 64,
-        scale = 5
-      }),
-      layer = 1,
-      allow_sprite_rotation = false,
-      should_scale_for_perspective = false,
-      relative_position = {0.0, 0.0, 0.0 },
-      extendable_length = {0.0, 0.0, 0.0 },
-      static_length = {0.0, 0.0, 0.88 },
-      snap_start = 1.0,
-      snap_end = 1.0,
-      dying_effect = default_dying_effect,
-      name = "hub"
-    },
-    ]]
-    {
-      --[[rotated_sprite =
-      {
-        filename = "__Moshine-assets__/graphics/entity/agricultural-tower/laser-artillery-turret.png",
-        width = 220,
-        height = 190,
-        shift = util.by_pixel(0, 0),
-        line_length = 8,
-        priority = "very-low",
-        direction_count = 64,
-        scale = 0.5,
-      },
-      rotated_sprite_shadow = --nuthin,
-      {
-        filename = "__Moshine-assets__/graphics/entity/agricultural-tower/laser-artillery-turret-shadow.png",
-        width = 230,
-        height = 190,
-        shift = util.by_pixel(5, 5),
-        line_length = 8,
-        priority = "very-low",
-        direction_count = 64,
-        scale = 0.5,
-        draw_as_shadow = true
-      },]]
       rotated_sprite = nuthin,
       rotated_sprite_shadow = nuthin,
       rotated_sprite_reflection = nuthin,
@@ -156,7 +96,6 @@ local craneprop = {
       --dying_effect = default_dying_effect,
       name = "hub"
     },
-
     {
       rotated_sprite = nuthin,
       rotated_sprite_shadow = nuthin,
