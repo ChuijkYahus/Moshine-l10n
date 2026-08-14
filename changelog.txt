@@ -6,12 +6,18 @@ Date: 2026-08
     - SOME OF THE CHANGES MIGHT BREAK SOME OF YOUR EXISTING BASE
   Features:
     - Added Sun heat and cooling as a recommended dependency (will download by default, can be disabled)
-    - This adds sun damage on moshine, sun visual effects, and a building that protects from it
+    - This adds sun damage on moshine, sun visual effects, and 2 buildings that protects from it
     - Added Cosmic scanner, a huge telescope buildable in 5 steps in space
     - Added 6 technologies for the Cosmic scanner construction and data making
     - Added out_signal.data (data processor, combines solved_equation.data and foreign.data) and cosmos.data (Cosmic scanner)
-    - Added achievement for building a cosmic scanner
+    - Added achievement for building a Cosmic scanner
+    - Added achievement for building a Cryogenic cooling device
     - You can load and unload solved equation data in/from datacells
+    - Added 2 menu simulations (cosmic scanner and platform getting destroyed)
+  Info:
+    - Sun heat and cooling comes with 2 settings to change damage and frequency. If you already installed it previously, new version of it comes nerfed, with new graphics
+    - Small heat protector is cheap, you can make it directly from your platform, only protects a small zone.
+    - Bigger heat protector is unlocked in Aquilo but protects a radius of about 50 tiles
   Balancing:
     - Nerfed accumulator space efficiency to 6x more space efficient (from 15x) (by default) (in submod)
     - Nerfed solar panel space efficiency to 4x more space efficient (from 6.6x) (by default) (in submod)
@@ -37,9 +43,11 @@ Date: 2026-08
     - Tweaked some icon variations
     - Reworked ai trainer tech icon
     - AI tiers tech icons recolored to look like their icons
+    - Updated some menu simulations to account for 2.1 and sun heat
   Bugfixes:
     - Fixed recycling recipe for hypercell substation, solar panel and accumulator
     - Fixed ai-tier-2 recipe result probability
+    - Fixed some factoriopedia simulations
   Changes:
     - Removed settings that disabled some mods that are now simply optional
     - Solar power on Moshine orbit increased from x60 to x600

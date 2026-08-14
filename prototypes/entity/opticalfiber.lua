@@ -32,8 +32,8 @@ opticalfiberpictures = function()
       filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber-straight-vertical-single.png",
       flags = {"low-object"},
       priority = "extra-high",
-      width = 128,
-      height = 128,
+      width = 160,
+      height = 160,
       scale = 0.5
     },
     straight_vertical =
