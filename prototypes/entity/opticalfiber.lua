@@ -245,7 +245,7 @@ opticalfiberpictures = function()
     },
     fluid_background =
     {
-      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-background.png",
+      filename = "__Moshine-assets__/graphics/entity/opticalfiber/fluid-background-new.png",
       flags = {"low-object"},
       priority = "extra-high",
       width = 32,

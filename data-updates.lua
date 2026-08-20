@@ -343,3 +343,124 @@ if mods["snouz_better_substation"] then
   data.raw["technology"]["snouz_better_substation_tech"].prerequisites = {"electric-energy-distribution-2", "moshine-tech-ai-tier-4"}
   recycling.generate_recycling_recipe(data.raw["recipe"]["snouz_better_substation"])
 end
+
+
+if data.raw["technology"]["moshine-tech-silicon"] then
+  table.insert(data.raw["technology"]["moshine-tech-cosmicscanner-construction1"].prerequisites, "moshine-tech-silicon")
+end
+
+
+
+
+if settings.startup["moshine-data-colors"] and settings.startup["moshine-data-colors"].value == false then
+  -- technology
+  if data.raw.technology["moshine-tech-data-extractor"] then
+    data.raw.technology["moshine-tech-data-extractor"].localised_name = {"technology-name.moshine-tech-data-extractor_nocolor"}
+  end
+  -- entity
+  if data.raw["mining-drill"]["data-extractor"] then
+    data.raw["mining-drill"]["data-extractor"].localised_name = {"entity-name.data-extractor_nocolor"}
+  end
+  -- item
+  if data.raw.item["data-extractor"] then
+    data.raw.item["data-extractor"].localised_name = {"item-name.data-extractor_nocolor"}
+  end
+  if data.raw.item["ai-tier-1"] then
+    data.raw.item["ai-tier-1"].localised_name = {"item-name.ai-tier-1_nocolor"}
+  end
+  if data.raw.item["ai-tier-2"] then
+    data.raw.item["ai-tier-2"].localised_name = {"item-name.ai-tier-2_nocolor"}
+  end
+  if data.raw.item["ai-tier-3"] then
+    data.raw.item["ai-tier-3"].localised_name = {"item-name.ai-tier-3_nocolor"}
+  end
+  if data.raw.item["ai-tier-4"] then
+    data.raw.item["ai-tier-4"].localised_name = {"item-name.ai-tier-4_nocolor"}
+  end
+  if data.raw.item["ai-tier-5"] then
+    data.raw.item["ai-tier-5"].localised_name = {"item-name.ai-tier-5_nocolor"}
+  end
+  if data.raw.item["ai-tier-6"] then
+    data.raw.item["ai-tier-6"].localised_name = {"item-name.ai-tier-6_nocolor"}
+  end
+  if data.raw.item["ai-tier-7"] then
+    data.raw.item["ai-tier-7"].localised_name = {"item-name.ai-tier-7_nocolor"}
+  end
+  if data.raw.item["ai-tier-8"] then
+    data.raw.item["ai-tier-8"].localised_name = {"item-name.ai-tier-8_nocolor"}
+  end
+  if data.raw.item["ai-tier-9"] then
+    data.raw.item["ai-tier-9"].localised_name = {"item-name.ai-tier-9_nocolor"}
+  end
+  if data.raw.item["ai-tier-10"] then
+    data.raw.item["ai-tier-10"].localised_name = {"item-name.ai-tier-10_nocolor"}
+  end
+  if data.raw.item["datacell-raw-data"] then
+    data.raw.item["datacell-raw-data"].localised_name = {"item-name.datacell-raw-data_nocolor"}
+  end
+  if data.raw.item["datacell-equation"] then
+    data.raw.item["datacell-equation"].localised_name = {"item-name.datacell-equation_nocolor"}
+  end
+  if data.raw.item["datacell-solved-equation"] then
+    data.raw.item["datacell-solved-equation"].localised_name = {"item-name.datacell-solved-equation_nocolor"}
+  end
+  if data.raw.item["datacell-ai-model-data"] then
+    data.raw.item["datacell-ai-model-data"].localised_name = {"item-name.datacell-ai-model-data_nocolor"}
+  end
+  if data.raw.item["datacell-cosmic-data-outsignal"] then
+    data.raw.item["datacell-cosmic-data-outsignal"].localised_name = {"item-name.datacell-cosmic-data-outsignal_nocolor"}
+  end
+  if data.raw.item["datacell-cosmic-data"] then
+    data.raw.item["datacell-cosmic-data"].localised_name = {"item-name.datacell-cosmic-data_nocolor"}
+  end
+  -- fluid
+  if data.raw.fluid["raw-data"] then
+    data.raw.fluid["raw-data"].localised_name = {"fluid-name.raw-data_nocolor"}
+  end
+  if data.raw.fluid["solved-equation-data"] then
+    data.raw.fluid["solved-equation-data"].localised_name = {"fluid-name.solved-equation-data_nocolor"}
+  end
+  if data.raw.fluid["cosmic-data-outsignal"] then
+    data.raw.fluid["cosmic-data-outsignal"].localised_name = {"fluid-name.cosmic-data-outsignal_nocolor"}
+  end
+  if data.raw.fluid["cosmic-data"] then
+    data.raw.fluid["cosmic-data"].localised_name = {"fluid-name.cosmic-data_nocolor"}
+  end
+  -- recipe
+  if data.raw.recipe["data-extractor"] then
+    data.raw.recipe["data-extractor"].localised_name = {"recipe-name.data-extractor_nocolor"}
+  end
+  if data.raw.recipe["datacell-raw-data"] then
+    data.raw.recipe["datacell-raw-data"].localised_name = {"recipe-name.datacell-raw-data_nocolor"}
+  end
+  if data.raw.recipe["datacell-remove-raw-data"] then
+    data.raw.recipe["datacell-remove-raw-data"].localised_name = {"recipe-name.datacell-remove-raw-data_nocolor"}
+  end
+  if data.raw.recipe["datacell-solved-equation"] then
+    data.raw.recipe["datacell-solved-equation"].localised_name = {"recipe-name.datacell-solved-equation_nocolor"}
+  end
+  if data.raw.recipe["datacell-remove-solved-equation"] then
+    data.raw.recipe["datacell-remove-solved-equation"].localised_name = {"recipe-name.datacell-remove-solved-equation_nocolor"}
+  end
+  if data.raw.recipe["datacell-ai-model-data"] then
+    data.raw.recipe["datacell-ai-model-data"].localised_name = {"recipe-name.datacell-ai-model-data_nocolor"}
+  end
+  if data.raw.recipe["datacell-remove-ai-model-data"] then
+    data.raw.recipe["datacell-remove-ai-model-data"].localised_name = {"recipe-name.datacell-remove-ai-model-data_nocolor"}
+  end
+  if data.raw.recipe["cosmic-data-outsignal-creation"] then
+    data.raw.recipe["cosmic-data-outsignal-creation"].localised_name = {"recipe-name.cosmic-data-outsignal-creation_nocolor"}
+  end
+  if data.raw.recipe["datacell-cosmic-data-outsignal"] then
+    data.raw.recipe["datacell-cosmic-data-outsignal"].localised_name = {"recipe-name.datacell-cosmic-data-outsignal_nocolor"}
+  end
+  if data.raw.recipe["datacell-remove-cosmic-data-outsignal"] then
+    data.raw.recipe["datacell-remove-cosmic-data-outsignal"].localised_name = {"recipe-name.datacell-remove-cosmic-data-outsignal_nocolor"}
+  end
+  if data.raw.recipe["datacell-cosmic-data"] then
+    data.raw.recipe["datacell-cosmic-data"].localised_name = {"recipe-name.datacell-cosmic-data_nocolor"}
+  end
+  if data.raw.recipe["datacell-remove-cosmic-data"] then
+    data.raw.recipe["datacell-remove-cosmic-data"].localised_name = {"recipe-name.datacell-remove-cosmic-data_nocolor"}
+  end
+end

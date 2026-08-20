@@ -549,7 +549,7 @@ data:extend({
         recipe = "moshine_cosmicscanner-construction-stage-1"
       },
     },
-    prerequisites = {"moshine-tech-silicon", "moshine-concrete-from-molten-iron-and-sand"},
+    prerequisites = {"moshine-concrete-from-molten-iron-and-sand"}, --"moshine-tech-silicon", 
     unit =
     {
       count = 390,

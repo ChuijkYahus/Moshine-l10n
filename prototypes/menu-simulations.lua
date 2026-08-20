@@ -1,4 +1,4 @@
-local moshine_simulations = "__Moshine__/menu-simulations/"
+local moshine_simulations = "__Moshine-assets__/menu-simulations/"
 
 local menu_sims = data.raw["utility-constants"]["default"].main_menu_simulations
 

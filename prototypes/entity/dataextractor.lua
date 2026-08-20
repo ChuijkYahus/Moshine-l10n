@@ -122,7 +122,7 @@ data:extend({
       width = 12,
       height = 12
     },
-    monitor_visualization_tint = {78, 173, 255},
+    monitor_visualization_tint = {78, 173, 100},
     --base_picture =
     --{
     --  north = data_extractor_sheet,
@@ -162,47 +162,77 @@ data:extend({
               width = 700,
               height = 500,
               scale = 0.5,
-              draw_as_light = true,
+              draw_as_glow = true,
               repeat_count = 24,
               shift = util.by_pixel(0, 0),
+              blend_mode = "additive",
             },
           }
         }
       },
-      animation =
+      working_visualisations =
       {
-        north =
         {
-          layers =
+          constant_speed = true,
+          animation =
           {
+            layers =
             {
-              filename = "__Moshine-assets__/graphics/entity/data-extractor/hr-crash-site-lab-repaired-beams.png",
-              priority = "high",
-              width = 130,
-              height = 100,
-              frame_count = 24,
-              line_length = 6,
-              animation_speed = 1/3,
-              shift = util.by_pixel(11, -27),
-              draw_as_glow = true,
-              blend_mode = "additive",
-              scale = 0.5
-            },
+              {
+                filename = "__Moshine-assets__/graphics/entity/data-extractor/hr-crash-site-lab-repaired-beams.png",
+                priority = "high",
+                width = 130,
+                height = 100,
+                frame_count = 24,
+                line_length = 6,
+                --repeat_count = 2,
+                animation_speed = 1/2,
+                shift = util.by_pixel(11, -27),
+                draw_as_glow = true,
+                blend_mode = "additive",
+                scale = 0.5
+              },
+              {
+                filename = "__Moshine-assets__/graphics/entity/data-extractor/hr-crash-site-lab-repaired-beams.png",
+                priority = "high",
+                width = 130,
+                height = 100,
+                frame_count = 24,
+                line_length = 6,
+                --repeat_count = 2,
+                animation_speed = 1/2,
+                shift = util.by_pixel(11, -27),
+                draw_as_light = true,
+                scale = 0.5
+              },
+            }
+          }
+        },
+        {
+          fadeout = true,
+          constant_speed = true,
+          animation =
+          {
+            layers =
             {
-              filename = "__Moshine-assets__/graphics/entity/data-extractor/hr-crash-site-lab-repaired-beams.png",
-              priority = "high",
-              width = 130,
-              height = 100,
-              frame_count = 24,
-              line_length = 6,
-              animation_speed = 1/3,
-              shift = util.by_pixel(11, -27),
-              draw_as_light = true,
-              scale = 0.5
-            },
+              {
+                filename = "__Moshine-assets__/graphics/entity/data-extractor/dataanim.png",
+                priority = "high",
+                width = 130,
+                height = 130,
+                frame_count = 24,
+                line_length = 6,
+                animation_speed = 1/5,
+                shift = util.by_pixel(0,64),
+                draw_as_glow = true,
+                blend_mode = "additive",
+                scale = 0.5,
+                run_mode = "forward-then-backward",
+              },
+            }
           }
         }
-      }
+      },
     },
     --base_render_layer = "under-elevated",
     open_sound = {filename = "__base__/sound/open-close/pumpjack-open.ogg", volume = 0.5},

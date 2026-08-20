@@ -362,8 +362,8 @@ data:extend({
     --durability_description_key = "description.science-pack-remaining-amount-key",
     --factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     --durability_description_value = "description.science-pack-remaining-amount-value",
-    stack_size = 40,
-    weight = 5*kg,
+    stack_size = 200,
+    weight = 0.5*kg,
   },
 
 
@@ -377,7 +377,7 @@ data:extend({
     pick_sound = item_sounds.module_inventory_pickup,
     drop_sound = item_sounds.module_inventory_move,
     default_import_location = "moshine",
-    stack_size = 40,
+    stack_size = 200,
     weight = 25*kg,
   },]]
   {
@@ -394,8 +394,8 @@ data:extend({
     --durability_description_key = "description.science-pack-remaining-amount-key",
     --factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     --durability_description_value = "description.science-pack-remaining-amount-value",
-    stack_size = 40,
-    weight = 5*kg,
+    stack_size = 200,
+    weight = 0.5*kg,
   },
   {
     type = "item",
@@ -411,8 +411,8 @@ data:extend({
     --durability_description_key = "description.science-pack-remaining-amount-key",
     --factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     --durability_description_value = "description.science-pack-remaining-amount-value",
-    stack_size = 40,
-    weight = 5*kg,
+    stack_size = 200,
+    weight = 0.5*kg,
   },
   {
     type = "item",
@@ -429,8 +429,8 @@ data:extend({
     --durability_description_key = "description.science-pack-remaining-amount-key",
     --factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     --durability_description_value = "description.science-pack-remaining-amount-value",
-    stack_size = 40,
-    weight = 5*kg,
+    stack_size = 200,
+    weight = 0.5*kg,
   },
 
   {
@@ -447,8 +447,8 @@ data:extend({
     --durability_description_key = "description.science-pack-remaining-amount-key",
     --factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     --durability_description_value = "description.science-pack-remaining-amount-value",
-    stack_size = 40,
-    weight = 5*kg,
+    stack_size = 200,
+    weight = 0.5*kg,
   },
 
   {
@@ -465,8 +465,8 @@ data:extend({
     --durability_description_key = "description.science-pack-remaining-amount-key",
     --factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     --durability_description_value = "description.science-pack-remaining-amount-value",
-    stack_size = 40,
-    weight = 5*kg,
+    stack_size = 200,
+    weight = 0.5*kg,
   },
 
 
@@ -484,8 +484,8 @@ data:extend({
     --durability_description_key = "description.science-pack-remaining-amount-key",
     --factoriopedia_durability_description_key = "description.factoriopedia-science-pack-remaining-amount-key",
     --durability_description_value = "description.science-pack-remaining-amount-value",
-    stack_size = 40,
-    weight = 5*kg,
+    stack_size = 200,
+    weight = 0.5*kg,
   },
 
 --     █████  ██     ███    ███  ██████  ██████  ███████ ██      

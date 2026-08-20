@@ -166,8 +166,8 @@ data:extend({
           repeat_count = 1,
           animation_speed = 1 / 3,
           shift = util.by_pixel(0, 0),
-          scale = 0.5
-        }
+          scale = 0.5,
+        },
       }
     },
     stateless_visualisation = nil;

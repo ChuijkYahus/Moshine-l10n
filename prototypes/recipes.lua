@@ -445,7 +445,6 @@ data:extend({
   },
 
 
-
   {
     type = "recipe",
     name = "datacell-solved-equation",
@@ -570,15 +569,22 @@ data:extend({
     subgroup = "moshine-datacells",
     order = "a[moshine]-ea",
     hide_from_player_crafting = true,
-    energy_required = 100,
+    energy_required = 220,
     ingredients = {
-      {type = "fluid", name = "cosmic-data-outsignal", amount = 100},
+      {type = "fluid", name = "cosmic-data-outsignal", amount = 990},
     },
-    results = {{type = "fluid", name = "cosmic-data", amount_min = 9, amount_max = 267}},
+    results = {{
+      type = "fluid", 
+      name = "cosmic-data", 
+      independent_probability = 0.4,
+      amount_min = 620, 
+      amount_max = 6740,
+    }},
     allow_productivity = false,
     auto_recycle = false,
     enabled = false,
-    crafting_machine_tint = {primary = {126,57,215}}, --#260d7f
+    allow_productivity = true,
+    crafting_machine_tint = {primary = util.color("#8086ff"),}, --#260d7f
   },
 
   {
@@ -598,7 +604,7 @@ data:extend({
     allow_productivity = false,
     auto_recycle = false,
     enabled = false,
-    crafting_machine_tint = {primary = {126,57,215}}, --#260d7f
+    crafting_machine_tint = {primary = util.color("#8086ff"),}, --#260d7f
   },
   {
     type = "recipe",
@@ -621,7 +627,7 @@ data:extend({
     auto_recycle = false,
     enabled = false,
     hide_from_player_crafting = true,
-    crafting_machine_tint = {primary = {126,57,215}}, --#260d7f
+    crafting_machine_tint = {primary = util.color("#8086ff"),}, --#260d7f
   },
 
 

@@ -1,7 +1,30 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.2.0
-Date: 2026-08
+Version: 1.2.1
+Date: 2026-08-20
+  Gui:
+    - Added setting to remove data's colors
+    - cosmos.data color made more readable
+  Compatibility:
+    - Forced compatibility with K2SO
+  Balancing:
+    - Quintupled datacell stacks from 40 to 200
+    - Divided datacells weight by 10 (can put 2k in a rocket)
+    - Allowing productivity modules on the cosmic scanner
+    - Increased output by cosmos.data creation recipe by 20x, but increased time by 1.8x
+    - "Processing equation" doesn't take damage anymore (in submod)
+  Graphics:
+    - Reworked "foreign.data decoder" and crashed probe graphics
+    - Added steam and better ground pattern to heat cooler 1 (in submod)
+    - Added huge luminous ground pattern to heat cooler 2 (in submod)
+    - Added cosmic scanner fiber connectors
+    - Added correct fiber corpses
   Info:
+    - Moved menu-simulations over to moshine-assets
+---------------------------------------------------------------------------------------------------
+Version: 1.2.0
+Date: 2026-08-14
+  Info:
+    - Beta version
     - YOU CAN DISABLE DAMAGES IN STARTUP SETTINGS
     - SOME OF THE CHANGES MIGHT BREAK SOME OF YOUR EXISTING BASE
   Features:

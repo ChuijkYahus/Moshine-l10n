@@ -8,6 +8,46 @@ local pipedistance2 = 0.5
 local animframes = 30
 local animspeed = 0.3
 
+
+ local pipe_connectors = {
+  north = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_cosmicscanner_north.png",
+    priority = "extra-high",
+    shift = {0, 1},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  east = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_cosmicscanner_east.png",
+    priority = "extra-high",
+    shift = {-1, 0},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  south = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_cosmicscanner_south.png",
+    priority = "extra-high",
+    shift = {0, -1},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+  west = {
+    filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_cosmicscanner_west.png",
+    priority = "extra-high",
+    shift = {1, 0},
+    width = 128,
+    height = 128,
+    scale = 0.5,
+    render_layer = "object",
+  },
+}
+
 data:extend({
   {
     type = "corpse",
@@ -66,7 +106,7 @@ data:extend({
     {
       {
         production_type = "input",
-        --pipe_picture = assembler3pipepictures(),
+        pipe_picture = pipe_connectors,
         --pipe_covers = pipecoverspictures(),
         volume = 10000,
         --filter = "raw-data",
@@ -80,11 +120,13 @@ data:extend({
           {flow_direction = "input", direction = defines.direction.west, position = {-((size/2)-0.5), pipedistance}, connection_category = "data"},
           {flow_direction = "input", direction = defines.direction.west, position = {-((size/2)-0.5), -pipedistance}, connection_category = "data"},
         },
-        secondary_draw_orders = { north = -1 },
+        --secondary_draw_orders = { north = 2 },
         max_pipeline_extent = 1000000,
+        draw_only_when_connected = true,
       },
       {
         production_type = "output",
+        pipe_picture = pipe_connectors,
         --pipe_picture = assembler3pipepictures(),
         --pipe_covers = pipecoverspictures(),
         volume = 10000,
@@ -99,8 +141,9 @@ data:extend({
           --{flow_direction = "output", direction = defines.direction.west, position = {-((size/2)-0.5), pipedistance2}, connection_category = "data"},
           --{flow_direction = "output", direction = defines.direction.west, position = {-((size/2)-0.5), -pipedistance2}, connection_category = "data"},
         },
-        secondary_draw_orders = { north = -1 },
+        secondary_draw_orders = { north = 2 },
         max_pipeline_extent = 1000000,
+        draw_only_when_connected = true,
       },
     },
     collision_box = {{-((size/2)-0.3), -((size/2)-0.3)}, {((size/2)-0.3), ((size/2)-0.3)}},
@@ -305,10 +348,10 @@ data:extend({
     close_sound = sounds.machine_close,
     --allowed_effects = {"speed", "consumption", "pollution"},
     --effect_receiver = {uses_module_effects = false, uses_beacon_effects = false, uses_surface_effects = true},
-    module_slots = 0,
-    --allowed_effects = {"speed"}, --{"consumption", "speed", "pollution", "quality"}, --"productivity"
-    --allowed_module_categories = {"ai-speed"},
-    --effect_receiver = {uses_module_effects = true, uses_beacon_effects = false, uses_surface_effects = true},
+    module_slots = 3,
+    allowed_effects = {"productivity"}, --{"speed"}, --{"consumption", "speed", "pollution", "quality"}, --"productivity"
+    --allowed_module_categories = {"productivity"},
+    effect_receiver = {uses_module_effects = true, uses_beacon_effects = false, uses_surface_effects = false},
     --[[working_sound =
     {
       sound =

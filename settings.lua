@@ -14,3 +14,13 @@
     order = "b"
   }
 }]]
+
+data:extend({
+  {
+    type = "bool-setting",
+    name = "moshine-data-colors",
+    setting_type = "startup",
+    default_value = true,
+    order = "a"
+  },
+})
