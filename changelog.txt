@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.2
+Date: 2026-08-23
+  Features:
+    - Added Data server (4x4) + technology
+  Balancing:
+    - Divided "datacell with equations" recipe time by 25 (100 -> 4)
+    - Divided "equation->solved-equation" time by 4 (4m -> 1m)
+  Changes:
+    - Changes to Optical fiber: weight 0.5kg (from 20), stack: 200 (from 100), crafting time: 1 (from 3), removed Moshine-only recipe restriction
+    - Optical fiber unlocked by data processor tech (earlier), while foreign.data related recipes unlocked by foreign data extractor (later)
+    - AI-trainer now has weight of 100kg
+  Graphics:
+    - Changed Compute farm cursor graphics
+    - Reworked 4 icons
+    - Edited Optical fiber graphics
+    - Sun warning icon edited, shifted and made more visible with "no power" also active (in submod)
+  Gui:
+    - Re-ordered some items
+---------------------------------------------------------------------------------------------------
 Version: 1.2.1
 Date: 2026-08-20
   Gui:
