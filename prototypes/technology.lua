@@ -289,11 +289,7 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "datacell-raw-data"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "datacell-remove-raw-data"
+        recipe = "optical-cable"
       },
     },
     prerequisites = {"moshine-tech-datacell-empty", "automation-3", "productivity-module-2", "moshine-tech-silicon-carbide"},
@@ -334,6 +330,29 @@ data:extend({
   },
   {
     type = "technology",
+    name = "moshine-tech-opticalfiber-storage-tank",
+    icon = "__Moshine-assets__/graphics/technology/moshine-tech-opticalfiber-storage-tank.png",
+    icon_size = 256,
+    effects =
+    {
+      {
+        type = "unlock-recipe",
+        recipe = "opticalfiber-storage-tank"
+      },
+    },
+    prerequisites = {"moshine-tech-data-processor-building",},
+    unit =
+    {
+      count = 100,
+      ingredients =
+      {
+        {"datacell-empty", 1},
+      },
+      time = 60
+    },
+  },
+  {
+    type = "technology",
     name = "moshine-tech-data-extractor",
     icon = "__Moshine-assets__/graphics/technology/moshine-tech-data-extractor.png",
     icon_size = 256,
@@ -347,7 +366,11 @@ data:extend({
       },
       {
         type = "unlock-recipe",
-        recipe = "optical-cable"
+        recipe = "datacell-raw-data"
+      },
+      {
+        type = "unlock-recipe",
+        recipe = "datacell-remove-raw-data"
       },
     },
     prerequisites = {"circuit-network", "moshine-tech-neural_computer", "moshine-tech-glass"},
