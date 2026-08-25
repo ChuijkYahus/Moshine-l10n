@@ -63,19 +63,19 @@ local craneprop = {
   {
     arm =
     {
-      turn_rate = 10,
-      extension_speed = 0.1
+      turn_rate = 0.01,
+      extension_speed = 0.3
     },
     grappler =
     {
-      vertical_turn_rate = 100,
-      horizontal_turn_rate = 100,
-      extension_speed = 100,
+      vertical_turn_rate = 1,
+      horizontal_turn_rate = 1,
+      extension_speed = 1,
       allow_transpolar_movement = true
     }
   },
-  min_arm_extent = 0,
-  min_grappler_extent = 1,
+  min_arm_extent = 0.0,
+  min_grappler_extent = 0.2,
   operation_angle = 10,--in degrees
   telescope_default_extention = 0.5,
 
@@ -251,17 +251,16 @@ data:extend({
     accepted_seeds = {"datacell-equation"},
     radius_visualisation_picture =
     {
-      filename = "__Moshine-assets__/graphics/entity/quantum-computer/square.png",
+      filename = "__core__/graphics/white-square.png",
       priority = "extra-high",
-      flags = {"light"},
-      width = 128,
-      height = 128,
-      scale = 0.25,
+      width = 10,
+      height = 10,
+      scale = 0.60,
     },
     random_growth_offset = 0,
     growth_grid_tile_size = 2,
-    growth_area_radius = 0.5,
-    radius = 5,
+    growth_area_radius = 0.65,
+    radius = 4,
     crane = craneprop,
     planting_procedure_points =
     {
@@ -298,12 +297,12 @@ data:extend({
       fade_in_ticks = 4,
       fade_out_ticks = 20
     },
-    central_orienting_sound = nil,
-    --{
-    --  sound = {filename = "__Moshine-assets__/sound/entity/agricultural-tower/agricultural-tower-rotation-loop.ogg", volume = 0.1},
-    --  stopped_sound = {filename = "__Moshine-assets__/sound/entity/agricultural-tower/agricultural-tower-rotation-stop.ogg", volume = 0.1}
-    --},
-    --central_orienting_sound_source = "hub",
+    central_orienting_sound =
+    {
+      sound = {filename = "__Moshine-assets__/sound/entity/agricultural-tower/agricultural-tower-rotation-loop.ogg", volume = 0.9},
+      stopped_sound = {filename = "__Moshine-assets__/sound/entity/agricultural-tower/agricultural-tower-rotation-stop.ogg", volume = 0.9}
+    },
+    central_orienting_sound_source = "hub",
     arm_extending_sound =
     {
       sound = {filename = "__space-age__/sound/entity/agricultural-tower/agricultural-tower-arm-extend-loop.ogg", volume = 0},
@@ -356,84 +355,109 @@ data:extend({
     circuit_wire_max_distance = 30,
     graphics_set =
     {
-      animation_progress = 0.3,
+      --always_draw_idle_animation = true,
+      --[[idle_animation =
+      {
+        layers =
+        {
+          {
+            filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-base.png",
+            width = 500,
+            height = 500,
+            shift = util.by_pixel(0, -6),
+            line_length = 1,
+            priority = "high",
+            animation_speed = 0.5,
+            repeat_count = 48,
+            --frame_count = 48,
+            scale = 0.5,
+          },]]--[[
+          {
+            filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer.png",
+            width = 400,
+            height = 420,
+            shift = util.by_pixel(0, -6),
+            line_length = 8,
+            priority = "high",
+            animation_speed = 0.5,
+            frame_count = 48,
+            scale = 0.5,
+          },
+          {
+            filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-sh.png",
+            width = 500,
+            height = 500,
+            shift = util.by_pixel(0, -6),
+            line_length = 1,
+            priority = "high",
+            frame_count = 1,
+            repeat_count = 48,
+            draw_as_shadow = true,
+            scale = 0.5,
+          },]]
+          
+        --}
+      --},
+      --[[animation =
+      {
+        layers =
+        {
+          {
+            filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-glow.png",
+            width = 400,
+            height = 420,
+            shift = util.by_pixel(0, -6),
+            line_length = 8,
+            priority = "high",
+            animation_speed = 0.5,
+            frame_count = 48,
+            scale = 0.5,
+            draw_as_glow = true,
+            blend_mode = "additive",
+          },
+          {
+            filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-glow2.png",
+            width = 400,
+            height = 420,
+            shift = util.by_pixel(0, -6),
+            line_length = 8,
+            priority = "high",
+            animation_speed = 0.5,
+            frame_count = 48,
+            scale = 0.5,
+            draw_as_glow = true,
+            blend_mode = "additive-soft",
+          },
+        }
+      },]]
+      animation_progress = 0.5,
       states =
       {
         {
           name = "idle",
           duration = 1,
-          next_active = "firstturn",
-          next_inactive = "idle",
-        },
-        {
-          name = "firstturn",
-          duration = 48,
           next_active = "working",
-          next_inactive = "stopping",
+          next_inactive = "idle",
         },
         {
           name = "working",
           duration = 48,
           next_active = "working",
-          next_inactive = "stopping",
-        },
-        {
-          name = "stopping",
-          duration = 1,
-          next_active = "working",
           next_inactive = "idle",
         },
       },
       working_visualisations =
-      {
-        {
+      {{
           name = "base",
-          draw_in_states = {"idle", "firstturn", "working", "stopping"},
-          always_draw = true,
-          constant_speed = true,
-          render_layer = "object-under",
-          animation =
-          {
-            layers =
-            {
-              {
-                filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-base.png",
-                width = 500,
-                height = 500,
-                shift = util.by_pixel(0, -6),
-                priority = "high",
-                animation_speed = 0.5,
-                line_length = 1,
-                repeat_count = 48,
-                scale = 0.5,
-              },
-              {
-                filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-sh.png",
-                width = 500,
-                height = 500,
-                shift = util.by_pixel(0, -6),
-                line_length = 1,
-                priority = "high",
-                frame_count = 1,
-                repeat_count = 48,
-                animation_speed = 0.5,
-                draw_as_shadow = true,
-                scale = 0.5,
-              }
-            },
-          },
-        },
-        {
-          name = "notmoving",
-          draw_in_states = {"idle"},
-          always_draw = true,
+          draw_in_states = {"idle", "working"},
+          --always_draw = false,
           render_layer = "object",
           animation =
           {
             layers =
             {
               {
-                filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-static.png",
+                filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer.png",
                 width = 400,
                 height = 420,
                 shift = util.by_pixel(0, -6),
@@ -450,10 +474,9 @@ data:extend({
           },
         },
         {
-          name = "missing_frame",
-          draw_in_states = {"stopping"},
-          always_draw = true,
-          constant_speed = true,
+          name = "notmoving",
+          draw_in_states = {"idle"},
+          --always_draw = false,
           render_layer = "cargo-hatch",
           animation =
           {
@@ -473,28 +496,13 @@ data:extend({
                 --draw_as_glow = true,
                 --blend_mode = "additive",
               },
-              {
-                filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-glow.png",
-                width = 400,
-                height = 420,
-                shift = util.by_pixel(0, -6),
-                line_length = 1,
-                priority = "high",
-                animation_speed = 0.5,
-                frame_count = 1,
-                repeat_count = 48,
-                scale = 0.5,
-                draw_as_glow = true,
-                blend_mode = "additive",
-              },
             },
           },
         },
         {
           name = "rotate",
-          draw_in_states = {"working","firstturn"},
-          always_draw = true,
-          constant_speed = true,
+          draw_in_states = {"working"},
+          --always_draw = false,
           render_layer = "cargo-hatch",
           animation =
           {
@@ -519,10 +527,7 @@ data:extend({
         {
           name = "glow",
           draw_in_states = {"working"},
-          draw_when_state_filter_matches = true,
-          always_draw = true,
-          constant_speed = true,
-          fadeout = false,
+          --always_draw = false,
           render_layer = "higher-object-under",
           animation =
           {
@@ -544,35 +549,51 @@ data:extend({
             },
           },
         },
-        {
-          name = "glow_firstturn",
-          draw_in_states = {"firstturn"},
-          draw_when_state_filter_matches = true,
-          always_draw = true,
-          constant_speed = true,
-          fadeout = true,
-          render_layer = "higher-object-under",
-          animation =
-          {
-            layers =
-            {
-              {
-                filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-glow.png",
-                width = 400,
-                height = 420,
-                shift = util.by_pixel(0, -6),
-                line_length = 8,
-                priority = "high",
-                animation_speed = 0.5,
-                frame_count = 48,
-                scale = 0.5,
-                draw_as_glow = true,
-                blend_mode = "additive",
-              },
-            },
-          },
-        },
+        
       },
+      --[[
+      always_draw_idle_animation = true, 
+      idle_animation =
+      {
+        layers =
+        {
+          {
+            filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-base.png",
+            width = 500,
+            height = 500,
+            shift = util.by_pixel(0, -6),
+            line_length = 1,
+            priority = "high",
+            animation_speed = 0.5,
+            repeat_count = 48,
+            --frame_count = 48,
+            scale = 0.5,
+          },
+          {
+            filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer.png",
+            width = 400,
+            height = 420,
+            shift = util.by_pixel(0, -6),
+            line_length = 8,
+            priority = "high",
+            animation_speed = 0.5,
+            frame_count = 48,
+            scale = 0.5,
+          },
+          {
+            filename = "__Moshine-assets__/graphics/entity/quantum-computer/quantum-computer-sh.png",
+            width = 500,
+            height = 500,
+            shift = util.by_pixel(0, -6),
+            line_length = 1,
+            priority = "high",
+            frame_count = 1,
+            repeat_count = 48,
+            draw_as_shadow = true,
+            scale = 0.5,
+          },
+        }
+      },]]
       water_reflection =
       {
         pictures =
@@ -742,7 +763,7 @@ data:extend({
       entity_to_sound_ratio = 0.2,
       average_pause_seconds = 8
     },]]--
-    map_color = {200, 250, 80},
+    map_color = {255, 255, 255},
   },
 
 
