@@ -1,4 +1,30 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.4
+Date: 2026-08-27
+  Balancing:
+    - Data server capacity x20
+    - Mining a cosmic scanner (or construction stage) yields the previous stage's item, so you at least don't lose all your progress.
+    - Mining cosmic scanner (or construction stage) takes (stage number * 10 seconds)
+    - Increased data buffer for data processor
+  Graphics:
+    - Reworked both cooling device ground texture (in submod)
+    - Reworked small cooling device graphics (in submod)
+    - Prevented ground sprites from visually despawning when the camera wasn't seeing the center of it
+  Bugfixes:
+    - Fixed cosmic scanner recipes saying they need to be made 15 times - it's actually 40
+    - Prevented cooling devices ground sprites from visually despawning when the camera wasn't seeing the center of it (in submod)
+  Gui:
+    - Better factoriopedia simulations for cosmic scanner
+    - Distinct icons for construction stages of Cosmic scanner
+    - Hide and show different recipes
+---------------------------------------------------------------------------------------------------
+Version: 1.2.3
+Date: 2026-08-25
+  Bugfixes:
+    - Fixed optical fiber extend of 320 when connected to data server
+  Graphics:
+    - Reworked most data icons to have the same shape as the first one
+---------------------------------------------------------------------------------------------------
 Version: 1.2.2
 Date: 2026-08-25
   Features:

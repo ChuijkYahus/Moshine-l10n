@@ -540,7 +540,7 @@ data:extend({
     categories = {"data-processing"},
     subgroup = "moshine-datacells",
     order = "a[moshine]-db",
-    --hide_from_player_crafting = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {
       {type = "item", name = "datacell-empty", amount = 1},
@@ -583,7 +583,7 @@ data:extend({
     categories = {"cosmic-data-creation"},
     subgroup = "moshine-datacells",
     order = "a[moshine]-ea",
-    hide_from_player_crafting = true,
+    --hide_from_player_crafting = true,
     energy_required = 220,
     ingredients = {
       {type = "fluid", name = "cosmic-data-outsignal", amount = 990},
@@ -609,7 +609,7 @@ data:extend({
     categories = {"data-processing"},
     subgroup = "moshine-datacells",
     order = "a[moshine]-eb",
-    --hide_from_player_crafting = true,
+    hide_from_player_crafting = true,
     energy_required = 1,
     ingredients = {
       {type = "item", name = "datacell-empty", amount = 1},

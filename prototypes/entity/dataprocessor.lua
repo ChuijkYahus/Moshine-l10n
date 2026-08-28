@@ -101,7 +101,7 @@ data:extend({
       {
         production_type = "input",
         pipe_picture = pipe_connectors,
-        volume = 100,
+        volume = 1000,
         pipe_connections = {
           {flow_direction = "input", direction = defines.direction.east, position = {1, 0}, connection_category = "data"},
           {flow_direction = "input", direction = defines.direction.west, position = {-1, 0}, connection_category = "data"}
@@ -113,7 +113,7 @@ data:extend({
       {
         production_type = "input",
         pipe_picture = pipe_connectors,
-        volume = 100,
+        volume = 1000,
         pipe_connections = {
           {flow_direction = "input", direction = defines.direction.north, position = {0, -1}, connection_category = "data"},
           {flow_direction = "input", direction = defines.direction.south, position = {0, 1}, connection_category = "data"},
@@ -125,7 +125,7 @@ data:extend({
       {
         production_type = "output",
         pipe_picture = pipe_connectors,
-        volume = 100,
+        volume = 1000,
         pipe_connections = {
           {flow_direction = "output", direction = defines.direction.north, position = {-1, -1}, connection_category = "data"},
           {flow_direction = "output", direction = defines.direction.north, position = {1, -1}, connection_category = "data"},
