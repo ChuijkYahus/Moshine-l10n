@@ -59,7 +59,7 @@ data:extend({
     selection_box = {{-(size/2), -(size/2)}, {(size/2), (size/2)}},
     fast_replaceable_group = "opticalfiber-storage-tank",
     damaged_trigger_effect = hit_effects.entity(),
-    icon_draw_specification = {scale = 0.7, shift = {0, -0.8}},
+    icon_draw_specification = {scale = 0.6, shift = {0, 0}},
     tall = true,
     fluid_box =
     {
