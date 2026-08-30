@@ -50,6 +50,4 @@ CODE
 - [AI trainer sound](https://freesound.org/s/382687/), [Processor sound](https://freesound.org/s/343387/)
 - AI trainer animation include parts of gifs by **zolloc** and **Mathew Lucas**.
 
-
-
 [KO-FI - Just in case anyone wants to support my work](https://ko-fi.com/snouz)

@@ -63,8 +63,9 @@ data:extend({
     tall = true,
     fluid_box =
     {
-      volume = 6000,
+      volume = 120000,
       --pipe_covers = pipecoverspictures(),
+      max_pipeline_extent = 1000000,
       pipe_connections =
       {
         { direction = defines.direction.north, position = {pipedistance, -((size/2)-0.5)}, hide_connection_info = true, connection_category = "data" },

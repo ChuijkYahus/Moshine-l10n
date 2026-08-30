@@ -9,6 +9,22 @@ local animframes = 30
 local animspeed = 0.3
 
 
+local make_simulation = function(name)
+  return
+  [[
+    game.simulation.camera_position = {0, 0}
+    game.simulation.camera_zoom = 0.8
+    for x = -16, 16, 1 do
+      for y = -8, 8 do
+        game.surfaces[1].set_tiles{{position = {x, y}, name = "space-platform-foundation"}}
+      end
+    end
+
+    game.surfaces[1].create_entity{name = "]]..name..[[", position = {0, 0}}
+
+  ]]
+end
+
  local pipe_connectors = {
   north = {
     filename = "__Moshine-assets__/graphics/entity/opticalfiber/opticalfiber_connector_cosmicscanner_north.png",
@@ -79,6 +95,7 @@ data:extend({
     type = "assembling-machine",
     name = "moshine_cosmicscanner",
     icon = "__Moshine__/graphics/icons/moshine_cosmicscanner.png",
+    factoriopedia_simulation = {planet = "nauvis", init = make_simulation("moshine_cosmicscanner")},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     fixed_recipe = "cosmic-data-creation",
     minable = {mining_time = 15, result = "moshine_cosmicscanner-construction-stage-1"},

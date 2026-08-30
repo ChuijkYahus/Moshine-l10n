@@ -1,5 +1,23 @@
---code mostly by Talandar
+--code partly by Talandar
 local item_sounds = require("__base__.prototypes.item_sounds")
+
+
+local make_simulation = function(name)
+  return
+  [[
+    game.simulation.camera_position = {0, 0}
+    game.simulation.camera_zoom = 0.8
+    for x = -16, 16, 1 do
+      for y = -8, 8 do
+        game.surfaces[1].set_tiles{{position = {x, y}, name = "space-platform-foundation"}}
+      end
+    end
+
+    game.surfaces[1].create_entity{name = "]]..name..[[", position = {0, 0}}
+
+  ]]
+end
+
 
 
 local megastructure_stages = {
@@ -72,8 +90,8 @@ data:extend({
     type = "item",
     name = "moshine_cosmicscanner-construction-stage-1",
     icons = {
-      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner.png"},
-      {icon = "__Moshine__/graphics/icons/under-construction.png"}
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner_constructing.png"},
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner-construction-stage-1.png"}
     },
     --subgroup = "moshine-production-machine",
     --order = "ffl",
@@ -87,6 +105,69 @@ data:extend({
     weight = 1000 * kg,
     default_import_location = "moshine",
     auto_recycle = false,
+  },
+
+  {
+    type = "item",
+    name = "moshine_cosmicscanner-construction-stage-2",
+    icons = {
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner_constructing.png"},
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner-construction-stage-2.png"}
+    },
+    subgroup = "moshine-space-platform",
+    order = "a[moshine_cosmicscanner]",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "moshine_cosmicscanner-construction-stage-2",
+    stack_size = 1,
+    weight = 10000 * kg,
+    default_import_location = "moshine",
+    auto_recycle = false,
+    --hidden = true,
+    hidden_in_factoriopedia = true,
+  },
+
+  {
+    type = "item",
+    name = "moshine_cosmicscanner-construction-stage-3",
+    icons = {
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner_constructing.png"},
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner-construction-stage-3.png"}
+    },
+    subgroup = "moshine-space-platform",
+    order = "a[moshine_cosmicscanner]",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "moshine_cosmicscanner-construction-stage-3",
+    stack_size = 1,
+    weight = 10000 * kg,
+    default_import_location = "moshine",
+    auto_recycle = false,
+    --hidden = true,
+    hidden_in_factoriopedia = true,
+  },
+
+  {
+    type = "item",
+    name = "moshine_cosmicscanner-construction-stage-4",
+    icons = {
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner_constructing.png"},
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner-construction-stage-4.png"}
+    },
+    subgroup = "moshine-space-platform",
+    order = "a[moshine_cosmicscanner]",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "moshine_cosmicscanner-construction-stage-4",
+    stack_size = 1,
+    weight = 10000 * kg,
+    default_import_location = "moshine",
+    auto_recycle = false,
+    --hidden = true,
+    hidden_in_factoriopedia = true,
   },
   {
     type = "recipe",
@@ -130,6 +211,7 @@ data:extend({
 
 for i, stage in ipairs(megastructure_stages) do
 
+
   local size = 14
   local entity_name = stage.name
   local entity = {
@@ -138,12 +220,17 @@ for i, stage in ipairs(megastructure_stages) do
     --icon = "__Moshine__/graphics/icons/" .. entity_name .. ".png",
     --icon_size = 64,
 
+    --hidden = true,
+    --hidden_in_factoriopedia = true,
+    factoriopedia_simulation = {planet = "nauvis", init = make_simulation(entity_name)},
+    subgroup = "other",
+    order = "a[moshine_cosmicscanner]",
     icons = {
-      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner.png"},
-      {icon = "__Moshine__/graphics/icons/under-construction.png"}
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner_constructing.png"},
+      {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner-construction-stage-" .. i .. ".png"}
     },
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    minable = {mining_time = 10, result = "moshine_cosmicscanner-construction-stage-1"},
+    minable = {mining_time = i * 7, result = "moshine_cosmicscanner-construction-stage-" .. tostring(math.max(1, i)) },
     max_health = 3000 - (i * 300),
     collision_box = {{-((size/2)-0.3), -((size/2)-0.3)}, {((size/2)-0.3), ((size/2)-0.3)}},
     selection_box = {{-(size/2), -(size/2)}, {(size/2), (size/2)}},
@@ -261,6 +348,7 @@ for i, stage in ipairs(megastructure_stages) do
     entity
   })
 
+
   if stage.upgrade_recipe then
     data:extend({
       {
@@ -269,8 +357,8 @@ for i, stage in ipairs(megastructure_stages) do
         --icon = "__Moshine__/graphics/icons/" .. entity_name .. ".png",
         --icon_size = 64,
         icons = {
-          {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner.png"},
-          {icon = "__Moshine__/graphics/icons/under-construction.png"}
+          {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner_constructing.png"},
+          {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner-construction-stage-" .. (i+1) .. ".png"}
         },
         subgroup = "moshine-space-platform",
         order = "b[moshine_cosmicscanner]-" .. i,
@@ -278,7 +366,7 @@ for i, stage in ipairs(megastructure_stages) do
         energy_required = stage.upgrade_recipe.energy_required,
         enabled = false,
         ingredients = stage.upgrade_recipe.ingredients,
-        results = {},
+        --results = {},
         raise_on_crafted = true,
         --hidden = true,
         --hidden_in_factoriopedia = true,
@@ -286,9 +374,10 @@ for i, stage in ipairs(megastructure_stages) do
         surface_conditions = {{ property = "gravity", min = 0, max = 0}},
         auto_recycle = false,
         sort_item_ingredients = false,
+        --factoriopedia_simulation = {planet = "moshine", init = make_simulation("moshine_cosmicscanner-construction-stage-" .. i)},
       },
     })
     
   end
 end
-data.raw.recipe["moshine_cosmicscanner-construct-4"].icons = {{icon = "__Moshine__/graphics/icons/moshine_cosmicscanner.png"}}
+data.raw.recipe["moshine_cosmicscanner-construct-4"].icons = {{icon = "__Moshine__/graphics/icons/moshine_cosmicscanner.png"},{icon = "__Moshine__/graphics/icons/moshine_cosmicscanner-construction-stage-5.png"}}
