@@ -211,7 +211,7 @@ if mods["bzsilicon"] then
         count = 10,
         ingredients =
         {
-          {"datacell-empty", 1},
+          {"datacell-equation", 1},
         },
         time = 60
       }

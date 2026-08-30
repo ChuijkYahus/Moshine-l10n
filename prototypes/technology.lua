@@ -291,6 +291,10 @@ data:extend({
         type = "unlock-recipe",
         recipe = "optical-cable"
       },
+      {
+        type = "unlock-recipe",
+        recipe = "datacell-equation"
+      },
     },
     prerequisites = {"moshine-tech-datacell-empty", "automation-3", "productivity-module-2", "moshine-tech-silicon-carbide"},
     unit =
@@ -340,13 +344,13 @@ data:extend({
         recipe = "opticalfiber-storage-tank"
       },
     },
-    prerequisites = {"moshine-tech-data-processor-building",},
+    prerequisites = {"moshine-tech-neural_computer"},
     unit =
     {
       count = 100,
       ingredients =
       {
-        {"datacell-empty", 1},
+        {"datacell-equation", 1},
       },
       time = 60
     },
@@ -379,7 +383,7 @@ data:extend({
       count = 10,
       ingredients =
       {
-        {"datacell-empty", 1},
+        {"datacell-equation", 1},
       },
       time = 60
     },
@@ -462,10 +466,6 @@ data:extend({
       {
         type = "unlock-recipe",
         recipe = "webbed_processor_tile"
-      },
-      {
-        type = "unlock-recipe",
-        recipe = "datacell-equation"
       },
       {
         type = "nothing",
@@ -628,19 +628,15 @@ data:extend({
         recipe = "moshine_cosmicscanner-construct-2"
       },
     },
-    prerequisites = {"moshine-tech-cosmicscanner-construction2","moshine-tech-data-processor-building"},
+    prerequisites = {"moshine-tech-cosmicscanner-construction2","moshine-tech-neural_computer"},
     unit =
     {
-      count = 420,
+      count = 375,
       ingredients =
       {
-        {"automation-science-pack", 1},
-        {"logistic-science-pack", 1},
-        {"chemical-science-pack", 1},
-        {"space-science-pack", 1},
-        {"metallurgic-science-pack", 1}
+        {"datacell-equation", 1},
       },
-      time = 80
+      time = 60
     },
     order = "zzz",
     --upgrade = true,

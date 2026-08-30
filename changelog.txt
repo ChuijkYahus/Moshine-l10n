@@ -1,6 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 2026-08-30
+  Balancing:
+    - Empty datacells are not a Neural computer research unit anymore, replaced by datacell with equation.data
+    - Moved recipe for datacell with equation.data to data processor tech, so that tech serves a progression purpose
+    - Added datacell with equation.data for some techs
+    - Moved techs for cosmic scanner construction 3 and data server to require neural computer and datacell with equation.data
+    - Changed price of moshine-tech-cosmicscanner-construction5
+  Compatibility:
+    - Fixed potential future problems with mods that add tech ingredients to all techs
+---------------------------------------------------------------------------------------------------
 Version: 1.2.4
-Date: 2026-08-27
+Date: 2026-08-28
   Balancing:
     - Data server capacity x20
     - Mining a cosmic scanner (or construction stage) yields the previous stage's item, so you at least don't lose all your progress.
