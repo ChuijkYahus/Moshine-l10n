@@ -97,7 +97,7 @@ data:extend({
     },
     output_fluid_box =
     {
-      volume = 100,
+      volume = 10000,
       pipe_picture = pipe_connectors,
       --pipe_covers = pipecoverspictures(),,
       max_pipeline_extent = 1000000,
@@ -115,7 +115,11 @@ data:extend({
     mining_speed = 0.5,
     resource_searching_radius = 0.49,
     vector_to_place_result = {0, 0},
+
     module_slots = 2,
+    allowed_effects = {"speed"}, --{"consumption", "speed", "pollution", "quality"}, --"productivity"
+    allowed_module_categories = {"ai-speed"},
+    
     radius_visualisation_picture =
     {
       filename = "__base__/graphics/entity/pumpjack/pumpjack-radius-visualization.png",

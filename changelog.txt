@@ -1,6 +1,29 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.6
+Date: 2026-08-30
+  Balancing:
+    - foreign.data decoder: allows AI cores now (and raised ouptut buffer from 100 to 10000)
+    - Made out_signal.data MUCH cheaper and faster (from 300 foreign, 90 solved_eq, 1 white sc -> to 150 foreign, 40 solved_eq, 1 white sc; and 2x faster)
+    - cosmos.data recipe output DOUBLED, also takes 170 sec instead of 220 sec
+  Gui:
+    - Moved data icon on the data server, so you can read the content on the graphics
+  Changes:
+    - Datacell loading/unloading are now ignored_by_stats (thanks stringweasel)
+    - "foreign.data decoder" rename "Decoder of foreign.data"
+---------------------------------------------------------------------------------------------------
+Version: 1.2.5
+Date: 2026-08-30
+  Balancing:
+    - Empty datacells are not a Neural computer research unit anymore, replaced by datacell with equation.data
+    - Moved recipe for datacell with equation.data to data processor tech, so that tech serves a progression purpose
+    - Added datacell with equation.data for some techs
+    - Moved techs for cosmic scanner construction 3 and data server to require neural computer and datacell with equation.data
+    - Changed price of moshine-tech-cosmicscanner-construction5
+  Compatibility:
+    - Fixed potential future problems with mods that add tech ingredients to all techs
+---------------------------------------------------------------------------------------------------
 Version: 1.2.4
-Date: 2026-08-27
+Date: 2026-08-28
   Balancing:
     - Data server capacity x20
     - Mining a cosmic scanner (or construction stage) yields the previous stage's item, so you at least don't lose all your progress.
