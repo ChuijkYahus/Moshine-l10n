@@ -98,7 +98,8 @@ data:extend({
     factoriopedia_simulation = {planet = "nauvis", init = make_simulation("moshine_cosmicscanner")},
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
     fixed_recipe = "cosmic-data-creation",
-    minable = {mining_time = 15, result = "moshine_cosmicscanner-construction-stage-1"},
+    disabled_when_recipe_not_researched = true,
+    minable = {mining_time = 5, result = "moshine_cosmicscanner"},
     crafting_categories = {"cosmic-data-creation"},
     max_health = 1500,
     corpse = "moshine_cosmicscanner-remnants",
@@ -368,7 +369,7 @@ data:extend({
     module_slots = 3,
     allowed_effects = {"productivity"}, --{"speed"}, --{"consumption", "speed", "pollution", "quality"}, --"productivity"
     --allowed_module_categories = {"productivity"},
-    effect_receiver = {uses_module_effects = true, uses_beacon_effects = false, uses_surface_effects = false},
+    effect_receiver = {uses_module_effects = true, speed_limits = { low = 0, high = 0 }, uses_beacon_effects = false, uses_surface_effects = false},
     --[[working_sound =
     {
       sound =

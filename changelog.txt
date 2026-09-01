@@ -1,4 +1,17 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.2.7
+Date: 2026-09-01
+  Balancing:
+    - Quantum processor productivity cost scaled down a lot (700 to 35 for base cost)
+    - out_signal.data recipe completely changed: ingredients: foreign-data 150->1500, solved_equation.data 40->100 (science packs stays at 1), resulting out_signal.data: 1->20 | craft time 0.5 -> 20
+    - Mining a Cosmic scanner or construction stages gives you an item of that stage instead of just scaffoldings
+    - Cosmic scanner speed is now fixed, so it won't slow down with prod modules
+    - Cosmic scanner tech locked behind hypercell solar panels (if installed)
+  Graphics:
+    - Changed rendering of space platform around Moshine
+  Compatibility:
+    - Fixed compatibility with QualityInsurance and possibly other mods which change technologies between data and data-final-fixes
+---------------------------------------------------------------------------------------------------
 Version: 1.2.6
 Date: 2026-08-30
   Balancing:
