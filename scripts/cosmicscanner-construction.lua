@@ -54,6 +54,7 @@ local function construct_megastructure(entity, next_stage_name, is_final)
   local position = entity.position
   local force = entity.force
   local old_unit_number = entity.unit_number
+  --local quality = entity.quality
 
   storage.megastructure_progress[old_unit_number] = nil
 
@@ -69,6 +70,7 @@ local function construct_megastructure(entity, next_stage_name, is_final)
   local new_entity = surface.create_entity({
     name = next_stage_name,
     position = position,
+    --quality = quality,
     force = force,
     fast_replace = true,
     create_build_effect_smoke = true,

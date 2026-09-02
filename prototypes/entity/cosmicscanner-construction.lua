@@ -22,7 +22,7 @@ end
 
 local megastructure_stages = {
   {
-    name = "moshine_cosmicscanner-construction-stage-1", --x15 --ring
+    name = "moshine_cosmicscanner-construction-stage-1", --x40 --ring
     upgrade_recipe = {
       energy_required = 10,
       ingredients = {
@@ -34,7 +34,7 @@ local megastructure_stages = {
     },
   },
   {
-    name = "moshine_cosmicscanner-construction-stage-2", --x15 --infrastructure
+    name = "moshine_cosmicscanner-construction-stage-2", --x40 --infrastructure
     upgrade_recipe = {
       energy_required = 12,
       ingredients = {
@@ -46,7 +46,7 @@ local megastructure_stages = {
     },
   },
   {
-    name = "moshine_cosmicscanner-construction-stage-3", --x15 --fine machines
+    name = "moshine_cosmicscanner-construction-stage-3", --x40 --fine machines
     upgrade_recipe = {
       energy_required = 14,
       ingredients = {
@@ -58,7 +58,7 @@ local megastructure_stages = {
     },
   },
   {
-    name = "moshine_cosmicscanner-construction-stage-4", --x15 --final touches, dome, lab
+    name = "moshine_cosmicscanner-construction-stage-4", --x40 --final touches, dome, lab
     upgrade_recipe = {
       energy_required = 16,
       ingredients = {
@@ -102,7 +102,7 @@ data:extend({
     drop_sound = item_sounds.mechanical_large_inventory_move,
     place_result = "moshine_cosmicscanner-construction-stage-1",
     stack_size = 1,
-    weight = 1000 * kg,
+    weight = 10000 * kg,
     default_import_location = "moshine",
     auto_recycle = false,
   },
@@ -162,6 +162,23 @@ data:extend({
     pick_sound = item_sounds.mechanical_large_inventory_pickup,
     drop_sound = item_sounds.mechanical_large_inventory_move,
     place_result = "moshine_cosmicscanner-construction-stage-4",
+    stack_size = 1,
+    weight = 10000 * kg,
+    default_import_location = "moshine",
+    auto_recycle = false,
+    --hidden = true,
+    hidden_in_factoriopedia = true,
+  },
+  {
+    type = "item",
+    name = "moshine_cosmicscanner",
+    icon = "__Moshine__/graphics/icons/moshine_cosmicscanner.png",
+    subgroup = "moshine-space-platform",
+    order = "a[moshine_cosmicscanner]",
+    inventory_move_sound = item_sounds.mechanical_large_inventory_move,
+    pick_sound = item_sounds.mechanical_large_inventory_pickup,
+    drop_sound = item_sounds.mechanical_large_inventory_move,
+    place_result = "moshine_cosmicscanner",
     stack_size = 1,
     weight = 10000 * kg,
     default_import_location = "moshine",
@@ -230,10 +247,11 @@ for i, stage in ipairs(megastructure_stages) do
       {icon = "__Moshine__/graphics/icons/moshine_cosmicscanner-construction-stage-" .. i .. ".png"}
     },
     flags = {"placeable-neutral", "placeable-player", "player-creation"},
-    minable = {mining_time = i * 7, result = "moshine_cosmicscanner-construction-stage-" .. tostring(math.max(1, i)) },
+    minable = {mining_time = i * 2, result = "moshine_cosmicscanner-construction-stage-" .. i },
     max_health = 3000 - (i * 300),
     collision_box = {{-((size/2)-0.3), -((size/2)-0.3)}, {((size/2)-0.3), ((size/2)-0.3)}},
     selection_box = {{-(size/2), -(size/2)}, {(size/2), (size/2)}},
+    disabled_when_recipe_not_researched = true,
     crafting_categories = { "moshine_cosmicscanner-building" },
     crafting_speed = 1,
     energy_source = { type = "electric", usage_priority = "secondary-input" },

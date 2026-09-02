@@ -279,6 +279,13 @@ data:extend({
     hidden_in_factoriopedia = true,
     hidden = true,
   },]]
+
+--    ██████  ██       █████  ███    ██ ███████ ████████ 
+--    ██   ██ ██      ██   ██ ████   ██ ██         ██    
+--    ██████  ██      ███████ ██ ██  ██ █████      ██    
+--    ██      ██      ██   ██ ██  ██ ██ ██         ██    
+--    ██      ███████ ██   ██ ██   ████ ███████    ██    
+
   {
     type = "planet",
     name = "moshine",
@@ -426,7 +433,63 @@ data:extend({
         zoom_factor = 3,
         zoom_intensity = 0.6
       },
-    }
+    },
+    platform_surface_render_parameters =
+    {
+      clouds = nil,
+      fog = nil,
+      day_night_cycle_color_lookup = 
+      {
+        {0.0,  "__Moshine__/graphics/moshine_space_lut.png"},
+      },
+      terrain_tint_effect = nil,
+      shadow_opacity = 0.7,
+      platform_backdrop =
+      {
+        emission_scales_with_shadow = false,
+        radius = 520,
+        rotation_seconds = 15 * 60, --15m
+        cloudiness = 0,
+        surface_vertical_offset = 0.12,
+        cloud_vertical_offset = nil,
+        specular_intensity = 3000,
+        specular_color = {1, 1, 0.95, 1},
+        atmosphere_color = {0.1, 0.1, 0.7, 0.009},
+        cloud_flow_intensity = nil,
+        cloud_panning_rate = nil,
+        planet_axis = {3.0, 13.0},
+        planet_axis_deviation_amplitude = {10.0, 10.0},
+        planet_axis_deviation_seconds = {890.5*2/4.66, 753.7*2/4.66},
+        position = {-680, 601},
+        parallax_strength = {0.98, 0.98},
+        light_direction = {-0.42, 0.23, 0.67},
+        light_intensity_contrast = 0.6,
+        light_color = {1, 0.99, 0.95, 1},
+        light_radius = 6,
+        planet_surface =
+        {
+          filename = "__Moshine-assets__/graphics/space/moshine.png",
+          width = 2048,
+          height = 1024
+        },
+        planet_normal =
+        {
+          filename = "__space-age__/graphics/space/nauvis-cloud-normal.png",
+          width = 2048,
+          height = 1024
+        },
+        surface_normal_intensity = 0.4,
+        planet_emission =
+        {
+          filename = "__Moshine-assets__/graphics/space/moshine-emission.png",
+          width = 2048,
+          height = 1024
+        },
+        global_cloud = nil,
+        global_cloud_normal = nil,
+        global_cloud_flow = nil,
+      },
+    },
   },
   {
     type = "space-connection",
@@ -449,52 +512,3 @@ data:extend({
     asteroid_spawn_definitions = asteroid_util.spawn_definitions(asteroid_util.nauvis_vulcanus)
   },
 })
-
-
-
-data.raw.planet["moshine"].platform_surface_render_parameters = util.table.deepcopy(data.raw.planet["nauvis"].platform_surface_render_parameters)
-data.raw.planet["moshine"].platform_surface_render_parameters.platform_backdrop =
-{
-  emission_scales_with_shadow = false,
-  radius = 520,
-  rotation_seconds = 15 * 60, --15m
-  cloudiness = 0,
-  surface_vertical_offset = 0.12,
-  cloud_vertical_offset = nil,
-  specular_intensity = 3000,
-  specular_color = {1, 1, 0.95, 1},
-  atmosphere_color = {0.1, 0.1, 0.7, 0.009},
-  cloud_flow_intensity = nil,
-  cloud_panning_rate = nil,
-  planet_axis = {3.0, 13.0},
-  planet_axis_deviation_amplitude = {10.0, 10.0},
-  planet_axis_deviation_seconds = {890.5*2/4.66, 753.7*2/4.66},
-  position = {-680, 601},
-  parallax_strength = {0.98, 0.98},
-  light_direction = {-0.42, 0.23, 0.67},
-  light_intensity_contrast = 0.6,
-  light_color = {1, 0.99, 0.95, 1},
-  light_radius = 6,
-  planet_surface =
-  {
-    filename = "__Moshine-assets__/graphics/space/moshine.png",
-    width = 2048,
-    height = 1024
-  },
-  planet_normal =
-  {
-    filename = "__space-age__/graphics/space/nauvis-cloud-normal.png",
-    width = 2048,
-    height = 1024
-  },
-  surface_normal_intensity = 0.4,
-  planet_emission =
-  {
-    filename = "__Moshine-assets__/graphics/space/moshine-emission.png",
-    width = 2048,
-    height = 1024
-  },
-  global_cloud = nil,
-  global_cloud_normal = nil,
-  global_cloud_flow = nil,
-}

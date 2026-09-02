@@ -180,6 +180,10 @@ data:extend({
   },
   ]]
 
+
+
+
+
 -- post-nauvis
   {
     type = "recipe",
@@ -520,13 +524,13 @@ data:extend({
     subgroup = "moshine-datacells",
     order = "a[moshine]-da",
     --hide_from_player_crafting = true,
-    energy_required = 0.5,
+    energy_required = 10,
     ingredients = {
-      {type = "fluid", name = "raw-data", amount = 150},
-      {type = "fluid", name = "solved-equation-data", amount = 40},
+      {type = "fluid", name = "raw-data", amount = 1500},
+      {type = "fluid", name = "solved-equation-data", amount = 100},
       {type = "item", name = "space-science-pack", amount = 1},
     },
-    results = {{type = "fluid", name = "cosmic-data-outsignal", amount = 1}},
+    results = {{type = "fluid", name = "cosmic-data-outsignal", amount = 20}},
     allow_productivity = false,
     auto_recycle = false,
     enabled = false,
